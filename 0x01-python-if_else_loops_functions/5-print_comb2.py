@@ -2,7 +2,5 @@
 '''prints 0 to 99'''
 
 for item in range(0, 100):
-    if item == 99:
-        print("{}".format(item))
-    else:
-        print("{:02}".format(item), end=", ")
+    print("{0:02d}".format(item), sep=", " end="")
+print('\n')
