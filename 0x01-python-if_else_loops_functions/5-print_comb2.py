@@ -2,7 +2,7 @@
 '''prints 0 to 99'''
 
 for item in range(0, 100):
-    if item < 99:
-        print("{0:2d},".format(item), end=" ")
+    if item == 99:
+        print("{}".format(item))
     else:
-        print(f"{}".format(item))
+        print("{:02}".format(item), end=", ")
