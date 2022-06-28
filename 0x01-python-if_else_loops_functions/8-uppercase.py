@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 '''By Fatai'''
 
+
 def uppercase(str):
     """Print a string in uppercase."""
     for c in str:
