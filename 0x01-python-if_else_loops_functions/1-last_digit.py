@@ -8,6 +8,7 @@ else:
     sign = 1
 end = (number % 10)
 end *= sign
+number *= sign
 if (end > 5):
     print(f"Last digit of {number:d} is {end:d} and is greater than 5")
 elif (end == 0):
