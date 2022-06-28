@@ -4,4 +4,4 @@
 
 def pow(a, b):
     """Return a to power b."""
-    return (a ^ b)
+    return (a ** b)
