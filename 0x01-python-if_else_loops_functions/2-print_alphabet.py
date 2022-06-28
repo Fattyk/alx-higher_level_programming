@@ -2,4 +2,4 @@
 '''program that prints the ASCII alphabet, in lowercase'''
 
 for item in range(97, 123):
-    print(f"{item:c}", end="")
+    print("{0:c}".format(item), end="")
