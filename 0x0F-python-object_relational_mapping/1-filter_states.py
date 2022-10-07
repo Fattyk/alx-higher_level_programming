@@ -1,12 +1,15 @@
 #!/usr/bin/python3
-"""This module illustrates how to get the list of items from database"""
+"""Using Startswith queries.
+
+This module illustrates how to get the list of items from database
+"""
 
 import sys
 import MySQLdb
 
 
 def print_states(user, password, name):
-    """Print the list of states in database provided"""
+    """Print the list of states in database that starts with N"""
     try:
         host = "localhost"
         port = 3306
@@ -15,7 +18,9 @@ def print_states(user, password, name):
             passwd=password, db=name
         )
         cur = db.cursor()
-        cur.execute("SELECT * FROM states ORDER BY id ASC")
+        cur.execute(
+            "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
+        )
         states = cur.fetchall()
     except Exception as e:
         print("Error: ", str(e))
@@ -33,6 +38,7 @@ def main():
         return
 
     print_states(args[0], args[1], args[2])
+
 
 if __name__ == "__main__":
     main()
