@@ -2,13 +2,14 @@
 """Using Startswith queries.
 
 This module illustrates how to get the list of items from database
+that matches certain pattern
 """
 
 import sys
 import MySQLdb
 
 
-def print_states(user, password, name):
+def print_states(user, password, name, search):
     """Print the list of states in database that starts with N"""
     try:
         host = "localhost"
@@ -19,10 +20,11 @@ def print_states(user, password, name):
         )
         cur = db.cursor()
         cur.execute(
-            "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
+            "SELECT * FROM states WHERE name='{}' ORDER BY id ASC".format(
+               search
+            )
         )
         states = cur.fetchall()
-        print("States: =======>>", states)
     except Exception as e:
         print("Error: ", str(e))
         return
@@ -33,13 +35,12 @@ def print_states(user, password, name):
 
 def main():
     """Entry point for the whole program"""
-    print("About to start ...")
     args = sys.argv[1:]
-    if len(args) != 3:
-        print("username, password and dbname is required")
+    if len(args) != 4:
+        print("username, password, dbname and search are required")
         return
 
-    print_states(args[0], args[1], args[2])
+    print_states(args[0], args[1], args[2], args[3])
 
 
 if __name__ == "__main__":
