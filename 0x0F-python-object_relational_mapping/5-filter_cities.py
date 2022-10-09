@@ -20,7 +20,8 @@ def print_states(user, password, name, search):
         )
         cur = db.cursor()
         cur.execute(
-            "SELECT cities.name FROM cities JOIN states ON state_id=states.id\
+            "SELECT cities.name FROM cities INNER JOIN states ON\
+            state_id=states.id\
             WHERE states.name='{}' ORDER BY cities.id ASC".format(
                search
             )

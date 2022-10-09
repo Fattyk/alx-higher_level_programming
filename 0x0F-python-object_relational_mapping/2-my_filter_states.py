@@ -20,7 +20,8 @@ def print_states(user, password, name, search):
         )
         cur = db.cursor()
         cur.execute(
-            "SELECT * FROM states WHERE name='{}' ORDER BY id ASC".format(
+            "SELECT * FROM states WHERE name LIKE BINARY'{}'\
+            ORDER BY id ASC".format(
                search
             )
         )
