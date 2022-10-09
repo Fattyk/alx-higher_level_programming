@@ -3,7 +3,6 @@
 
 This module illustrates how to get the list of cities from given states
 """
-
 import re
 import sys
 import MySQLdb
@@ -19,13 +18,9 @@ def print_states(user, password, name, search):
             passwd=password, db=name
         )
         cur = db.cursor()
-        cur.execute(
-            "SELECT cities.name FROM cities INNER JOIN states ON\
-            state_id=states.id\
-            WHERE states.name='{}' ORDER BY cities.id ASC".format(
-               search
-            )
-        )
+        cur.execute("""SELECT cities.name FROM
+                cities INNER JOIN states ON states.id=cities.state_id
+                WHERE states.name=%s""", (search)
         states = cur.fetchall()
     except Exception as e:
         print("Error: ", str(e))
