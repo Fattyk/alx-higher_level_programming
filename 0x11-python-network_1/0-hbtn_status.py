@@ -1,10 +1,13 @@
 #!/usr/bin/python3
-# Python script that fetches https://alx-intranet.hbtn.io/status
+"""
+Fetch URL using urllib package:
+This Python script fetches https://alx-intranet.hbtn.io/status using urllib
+"""
 import urllib.request
 
 
 def fetch_url():
-    '''This method fetchs https://alx-intranet.hbtn.io/status using urllib'''
+    """This method fetchs https://alx-intranet.hbtn.io/status using urllib"""
     with urllib.request.urlopen(
             "https://alx-intranet.hbtn.io/status"
     ) as response:
@@ -12,7 +15,7 @@ def fetch_url():
 
 
 def main():
-    '''Main Entry - This is the main entry of the program'''
+    """Main Entry - This is the main entry of the program"""
     body = fetch_url()
     print(f"\t- type: {type(body)}")
     print(f"\t- content: {body}")
