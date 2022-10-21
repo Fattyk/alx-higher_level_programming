@@ -7,6 +7,11 @@ import requests
 
 
 def main():
-    url = sys.argv[1]
-    res = requests.get(url)
-    print(res.headers.get("X-Request-Id"))
+    if len(sys.argv) == 2:
+        url = sys.argv[1]
+        res = requests.get(url)
+        print(res.headers.get("X-Request-Id"))
+
+
+if __name__ == "__main__":
+    main()
