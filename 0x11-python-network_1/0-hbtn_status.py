@@ -17,6 +17,7 @@ def fetch_url():
 def main():
     """Main Entry - This is the main entry of the program"""
     body = fetch_url()
+    print("Body response:")
     print(f"\t- type: {type(body)}")
     print(f"\t- content: {body}")
     print(f"\t- utf8 content: {body.decode(encoding='utf-8')}")
