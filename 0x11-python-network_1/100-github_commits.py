@@ -12,16 +12,17 @@ import requests
 
 
 def main():
+    url = f"https://api.github.com/repos/{sys.argv[2]}/{sys.argv[1]}/commits"
+    res = requests.get(url)
+    results = res.json()
     try:
-        url = "https://api.github.com/repos/{}/{}/commits".format(
-            sys.argv[2], sys.argv[1]
-        )
-        res = requests.get(url)
-        results = res.json()
         for item in range(10):
             print("{}: {}".format(
-                results[item]["sha"],
-                results[item]["commit"]["author"]["name"])
-            )
-    except Exception:
+                results[item].get("sha"),
+                results[item].get("commit").get("author").get("name")))
+    except IndexError:
         pass
+
+
+if __name__ == "__main__":
+    main()
