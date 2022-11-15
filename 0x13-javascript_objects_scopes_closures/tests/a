@@ -1,0 +1,2 @@
+#!/usr/bin/node
+console.log('X'.repeat(6))
