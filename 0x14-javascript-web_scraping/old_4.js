@@ -11,12 +11,12 @@ request(url, function (error, response, body) {
   } else {
     // characters = JSON.parse(body).characters
     result = JSON.parse(body).results;
-    count = 0
+    count = 0;
     for (item of result) {
       for (character in item.characters) {
-	if ('https://swapi-api.hbtn.io/api/people/18/' === character) {
-        count = count + 1;
-	console.log(count);
+        if (character === 'https://swapi-api.hbtn.io/api/people/18/') {
+          count = count + 1;
+          console.log(count);
 	    }
       }
     }
